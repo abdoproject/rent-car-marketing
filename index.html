@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عروض إنشاء مواقع كراء السيارات الاحترافية</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff2a2a; /* أحمر رياضي جذاب */
+            --primary-hover: #d61f1f;
+            --dark-bg: #0b0c10; /* أسود فخم */
+            --card-bg: #1f2833; /* رمادي غامق متناسق */
+            --text-main: #ffffff;
+            --text-muted: #c5c6c7;
+            --accent-gold: #ffd700; /* ذهبي للباقة المميزة */
+            --container-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            padding: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 55px 20px;
+            background: linear-gradient(180deg, rgba(255, 42, 42, 0.15) 0%, rgba(11, 12, 16, 0) 100%);
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 42, 42, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            text-shadow: 0 2px 10px rgba(255, 42, 42, 0.3);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Global Section Title */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Features Box */
+        .features-box {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .step {
+            background: rgba(11, 12, 16, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid var(--primary-color);
+        }
+
+        .step h3 {
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        /* WhatsApp Live Preview */
+        .whatsapp-preview {
+            background-color: #0b141a;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+            background-blend-mode: overlay;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .chat-bubble {
+            background-color: #005c4b;
+            padding: 12px 15px;
+            border-radius: 12px 0 12px 12px;
+            max-width: 90%;
+            margin-right: auto;
+            color: #e9edef;
+            font-size: 0.95rem;
+            white-space: pre-line;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-align: right;
+        }
+
+        /* Stats Counter Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .stat-card h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Pricing Grid (Fully Responsive) */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .price-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Highlight target pack */
+        .price-card.featured {
+            border: 2px solid var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-gold) 0%, #b8860b 100%);
+            color: #000;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(255,215,0,0.4);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .price-card.featured .price {
+            color: var(--accent-gold);
+        }
+
+        .price span {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .price-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Buttons styling */
+        .btn-select-pack {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            width: 100%;
+            text-decoration: none;
+        }
+
+        .btn-select-pack:hover {
+            background-color: #20ba5a;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .price-card.featured .btn-select-pack {
+            background: linear-gradient(135deg, #25d366 0%, #1da851 100%);
+        }
+
+        /* Reviews / Testimonials Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .review-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.03);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .reviewer-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        .review-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        /* FAQ Section */
+        .faq-box {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 15px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .faq-item h4 {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Us Box */
+        .why-us {
+            background-color: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .why-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .why-item i {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .why-item h3 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .why-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 40px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (min-width: 768px) {
+            .steps { grid-template-columns: repeat(3, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(4, 1fr); }
+            header h1 { font-size: 2.8rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+            body { padding: 30px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1> واش عندك وكالة كراء السيارات وبغيتي تزيد من الكليان والأرباح ديالك؟</h1>
+            <p>كنقدمو ليك حلول رقمية متكاملة وساهلة باش تخدم بذكاء، تطور مشروعك وتجيب كليان لخدمتك بأقل تكلفة ومن النهار الأول.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h2>+45</h2>
+                <p>وكالة كراء سيارات خدمنا معاهم</p>
+            </div>
+            <div class="stat-card">
+                <h2>100%</h2>
+                <p>تجاوب وسرعة على الهواتف</p>
+            </div>
+            <div class="stat-card">
+                <h2>+500</h2>
+                <p>حجز ناجح تم عبر الواتساب</p>
+            </div>
+            <div class="stat-card">
+                <h2>24/7</h2>
+                <p>دعم تقني وتحديثات مستمرة</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">🛠️ كيفاش تايخدم <span>الموقع؟</span></h2>
+        <div class="features-box">
+            <div class="steps">
+                <div class="step">
+                    <h3>1. اختيار السيارة</h3>
+                    <p>الكليان كايدخل للموقع وكيختار الطوموبيل اللي عجباتو وتناسب ذوقه.</p>
+                </div>
+                <div class="step">
+                    <h3>2. تعمير المعلومات</h3>
+                    <p>كايعمر الخانات المطلوبة بسهولة (عدد الأيام، وبلاصة فين بغا يتسلم الطوموبيل).</p>
+                </div>
+                <div class="step">
+                    <h3>3. تأكيد الحجز فالواتساب</h3>
+                    <p>غير كايبرك على "تأكيد"، السيستم تايصاوب ميساج منظم وتيصيفطو ليك نيشان فالواتساب.</p>
+                </div>
+            </div>
+            
+            <div class="whatsapp-preview">
+                <div class="chat-bubble">
+                    مرحباً، أريد تأكيد حجز السيارة التالية:
+                    🚗 السيارة: Porsche 911 Carrera
+                    📅 عدد الأيام: 1
+                    📍 مكان التسليم: مطار محمد الخامس
+                    هل يمكن تأكيد توفّرها؟
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">💰 الأسعار والباقات <span>المناسبة ليك</span></h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>🎁 عرض خاص أول مرة</h3>
+                <div class="price">130 <span>درهم</span></div>
+                <p>خاص بالزبناء الجدد لي غايتعاملو معانا أول مرة (الموقع كامل بوحدو بدون دومين مدفوع).</p>
+                <button class="btn-select-pack" onclick="buyPack('عرض خاص أول مرة (130 درهم)')"><i class="fa-brands fa-whatsapp"></i> اطلب دابا</button>
+            </div>
+            <div class="price-card">
+                <h3>📦 الباقة العادية</h3>
+                <div class="price">150 <span>درهم</span></div>
+                <p>العرض العادي لإنشاء الموقع بالكامل ومخصص للزبناء السابقين الذين تعاملوا معنا.</p>
+                <button class="btn-select-pack" onclick="buyPack('الباقة العادية (150 درهم)')"><i class="fa-brands fa-whatsapp"></i> اطلب دابا</button>
+            </div>
+            <div class="price-card">
+                <h3>🌟 الباقة الاحترافية</h3>
+                <div class="price">200 <span>درهم</span></div>
+                <p>كتاخد فيها الموقع كامل مكمول + رابط خاص بسمية الوكالة ديالك (مثال: .com) شغال لمدة سنة كاملة.</p>
+                <button class="btn-select-pack" onclick="buyPack('الباقة الاحترافية مع الدومين (200 درهم)')"><i class="fa-brands fa-whatsapp"></i> اطلب دابا</button>
+            </div>
+            <div class="price-card featured">
+                <span class="badge">⭐ الأكثر طلباً</span>
+                <h3>🚀 باقة التسويق المتكاملة</h3>
+                <div class="price">230 <span>درهم</span></div>
+                <p>الكل في واحد! كتاخد فيها: الموقع الإلكتروني + الدومين الخاص بسميتك + إطلاق حملة إعلانية ممولة على تيك توك لمدة 5 أيام كاملة لضمان الكليان.</p>
+                <button class="btn-select-pack" onclick="buyPack('باقة التسويق المتكاملة العرض الشامل - الموقع والدومين وإعلان تيك توك (230 درهم)')"><i class="fa-brands fa-whatsapp"></i> اطلب العرض المميز</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">✨ علاش تختار <span>الخدمة ديالنا؟</span></h2>
+        <div class="why-us">
+            <div class="why-grid">
+                <div class="why-item">
+                    <i class="fa-solid fa-sliders"></i>
+                    <div>
+                        <h3>تعديلات مفتوحة وساهلة</h3>
+                        <p>الموقع ديالك قابل للتعديل فتقدر تبدل فيه اللي بغيتي! ما عليك غير تعلمني بشنو بغيتي تغير (تبدل التصاور، الطوموبيلات، الأثمنة) وأنا غانقادهم ليك فالحين.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <div>
+                        <h3>إكمال الحجز بسلاسة</h3>
+                        <p>غير كتوصلك رسالة الكليان فالواتساب، كتكمل معاه الهضرة فالحين: كتاكد ليه تواجد الطوموبيل، طريقة الدفع (كاش أو تحويل)، وكتطلب منه الوراق توجد الكونطرا.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">⭐ آراء وكالات <span>تعاملوا معانا</span></h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>ياسين .م</h4>
+                        <span>صاحب وكالة كازا درايف</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"صراحة باقة التسويق ديال 230 درهم نفعاتني بزاف، الإعلان د تيك توك جاب ليا كليان سيمانة الأولى والموقع ساهل تايجيني الحجز مقاد فالواتساب."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>أمين .ر</h4>
+                        <span>وكالة كراء بمدينة مراكش</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"الموقع سريع وخفيف فالتلفون والكليان تايعجبهم الحال يعمرو الحجز تما. والتعديلات اللي طلبت من الدري قادهم ليا فوقت قياسي."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>خديجة .ب</h4>
+                        <span>ميسور كار (أكادير)</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"تعامل احترافي وثمن جد مناسب مقارنة بالجودة، الدومين بسميتنا عطى مصداقية كبيرة للوكالة ديالنا."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>عمر .ت</h4>
+                        <span>وكالة طنجة رينت</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"خدمة ممتازة، عجبني حيت كولشي واضح ومكاينش كثرة الهضرة الخاوية، والموقع جاب ليا كليان من برا المغرب باغين يكريو ملي يوصلو للمطار."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>سفيان .ع</h4>
+                        <span>الرباط للسيارات</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"كنت خايف من الدفع فالبداية ولكن الدري ثقة وتعاملو زوين، والموقع شغال مزيان وماتايتبلوكاش كاع."</p>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <h4>عبد الرحيم .و</h4>
+                        <span>وكالة وجدة كارز</span>
+                    </div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p>"الباقة ديال تيك توك همزة حقيقية، ندمت اللي ما درتهاش من الأول. الخدمة متكاملة وسريعة بزاف."</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">❓ أسئلة <span>متكررة</span></h2>
+        <div class="faq-box">
+            <div class="faq-item">
+                <h4>كيفاش تانخلص هاد الخدمة؟</h4>
+                <p>طرق الدفع ساهلة ومتوفرة فكاع المغرب، تقدر تخلص عبر <strong>التحويل البنكي (Virement)</strong>، أو كاش عبر <strong>كاش بلوس (Cash Plus)</strong>، <strong>وفاكاش (Wafacash)</strong>، أو عبر تطبيقات الهاتف <strong>Mobile Wallet</strong> بعد الاتفاق المباشر على الواتساب.</p>
+            </div>
+            <div class="faq-item">
+                <h4>شحال كايأخد الموقع ديال الوقت باش يوجد؟</h4>
+                <p>الموقع كايوجد وتايكون شغال فمدة ما بين 24 إلى 48 ساعة كأقصى حد بعد استلام معلومات وكالتك.</p>
+            </div>
+            <div class="faq-item">
+                <h4>شنو هو الدومين (Domain) واش ضروري نخلصو كل عام؟</h4>
+                <p>الدومين هو رابط الموقع ديالك (مثال: www.abdo.com)، الثمن ديالو بوحدو هو 100 درهم فالعام ولكن اثمن قابل للمناقش على حسب نوع الدومين.</p>
+            </div>
+            <div class="faq-item">
+                <h4>كيفاش تايخدم الإشهار ديال تيك توك لي فالباقة؟</h4>
+                <p>كتعطين فيديو لوكالتك وكنطلقوه كإشهار ممول (Sponsored) مستهدف فالمنطقة لي بغيتي نتا لمدة 5 أيام باش يشوفوه الناس لي باغين يكريو السيارات تما.</p>
+            </div>
+            <div class="faq-item">
+                <h4>واش كاين شي مصاريف أخرى مخبية من بعد؟</h4>
+                <p>لأ أبداً! الأثمنة واضحة ومكاينش حتى شي ريال غاتزيد تخلصو من غير الثمن ديال الباقة لي ختاريتي.</p>
+            </div>
+            <div class="faq-item">
+                <h4>واش نقدر نزيد طوموبيلات جديدة من بعد؟</h4>
+                <p>نعم بالطبع، كيفما ذكرنا التعديلات مفتوحة، غير كتصيفط ليا التصاور والمعلومات وكنزيدهم ليك فالحين.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>جميع الحقوق محفوظة © 2026 - تطوير وإعداد مواقع كراء السيارات الاحترافية</p>
+        </footer>
+    </div>
+
+    <script>
+        function buyPack(packName) {
+            // الرقم الجديد الخاص بك تم وضعه هنا بنجاح
+            const myWhatsAppNumber = "212624139690"; 
+            
+            // صياغة الرسالة التلقائية للواتساب عند الضغط مباشرة
+            const message = `السلام عليكم، أنا مهتم بموقع كراء السيارات وبغيت نطلب هاد الباقة:\n\n` +
+                            `📋 الباقة: ${packName}\n\n` +
+                            `واش يمكن لينا نبداو الخدمة ونعطيك معلومات الوكالة ديالي؟`;
+
+            const encodedMessage = encodeURIComponent(message);
+            
+            // التوجيه المباشر للواتساب
+            window.open(`https://wa.me/${myWhatsAppNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
